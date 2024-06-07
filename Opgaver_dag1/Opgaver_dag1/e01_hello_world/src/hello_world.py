@@ -11,7 +11,7 @@
 
 def main():
     # Enter your code here, this is the correct indentation
-    print("Hello, World!")
+    print("Hello, world!")
     
 
 # This makes sure the main function is not called immediatedly

@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import numpy as np
+
 def transform(s1, s2):
     list1 = s1.split()
     list2 = s2.split()

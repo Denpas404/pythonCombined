@@ -7,26 +7,28 @@ def switch(input_shape):
         base = float(input("Give base of the triangle: "))
         height = float(input("Give height of the triangle: "))
         area = 0.5 * base * height
-        print(f"The area is {area}")               
+
     elif input_shape == "rectangle":
-        width = float(input("Give width of the rectangle: "))
         height = float(input("Give height of the rectangle: "))
-        area = width * height
-        print(f"The area is {area}")
+        width = float(input("Give width of the rectangle: "))
+        area = height * width
+
     elif input_shape == "circle":
         radius = float(input("Give radius of the circle: "))
-        area = math.pi * radius ** 2
-        print(f"The area is {area}")
+        area = math.pi * radius ** 2  # Use math.pi for accurate calculation
+
     else:
         print("Unknown shape!")
+        return
     
+    print(f"The area is {area:.12f}")  
 
 def main():
-    # enter you solution here
-    endless = True
-    while endless:
-        input_sharpe = input("Choose a shape (triangle, rectangle, circle): ")  
-        switch(input_sharpe)
+    while True:
+        shape = input("Choose a shape (triangle, rectangle, circle): ")
+        if shape == "":
+            break
+        switch(shape)
 
 if __name__ == "__main__":
     main()

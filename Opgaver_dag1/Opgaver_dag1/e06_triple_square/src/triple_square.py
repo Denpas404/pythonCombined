@@ -7,11 +7,14 @@ def square(num):
 
 def main():
     pass
-for i in range(1, 11):
-    if square(i) > triple(i):
-        break
-    else:
-        print(f"triple({i})=={triple(i)}\tsquare({i})=={square(i)}")
+    for i in range(1, 11):
+        squared = square(i)
+        tripled = triple(i)
+
+        if squared > tripled:
+            break
+
+        print(f"triple({i})=={tripled} square({i})=={squared}")
     
 if __name__ == "__main__":
     main()

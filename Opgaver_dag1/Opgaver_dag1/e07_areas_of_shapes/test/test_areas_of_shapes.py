@@ -36,7 +36,7 @@ class AreasOfShapes(unittest.TestCase):
 
     def test_many_queries(self):
         input_sequence = ["triangle", "20", "5", "rectangel",
-                          "rectangle", "20", "4", "circle", "10", ""]
+                        "rectangle", "20", "4", "circle", "10", ""]
         with patch('builtins.input', side_effect=input_sequence) as p:
             main()
             result=get_stdout().split('\n')
