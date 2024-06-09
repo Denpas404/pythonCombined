@@ -3,12 +3,11 @@ import re
 from models.missing_person import MissingPerson
 from models.gang_member import Gang_member
 
-
 def fetch_data(data_type):
     
     url = "https://api.fbi.gov/wanted/v1/list"
     params = {
-        "pageSize": 100  # Limiting results to 8
+        "pageSize": 100  
     }
 
     missing_person_list = []
@@ -55,8 +54,7 @@ def fetch_data(data_type):
                 missing_person = MissingPerson(uid, first_name, last_name, clean_details)                
                 missing_person_list.append(missing_person)
 
-                
-            if "Criminal Enterprise Investigations" in subjects and len(gang_member_list) < 4:
+            elif "Criminal Enterprise Investigations" in subjects and len(gang_member_list) < 4:
                 # Create a gang member object
                 gang_member = Gang_member(uid, first_name, last_name, clean_caution)
                 gang_member_list.append(gang_member)

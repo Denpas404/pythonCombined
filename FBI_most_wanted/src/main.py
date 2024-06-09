@@ -35,6 +35,7 @@ while True:
             gang_member.gang_name = input("Enter gang name: ")
             print("Gang Name: " + gang_member.gang_name)
             print("\n")
+            
             # save gang name to csv file
             if save_to_csv(gang_member_list, "gang_member"):
                 print("Data saved to gang_members.csv")
