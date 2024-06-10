@@ -7,21 +7,21 @@ from save_to_csv import does_files_exist_else_create_csv_file
 
 def fetch_data():
     
-    
-    base_url = "https://api.fbi.gov/wanted/v1/list?page="
-    page_count = 4  # Set the number of pages to fetch
+    base_url = "https://api.fbi.gov/wanted/v1/list"
 
     missing_person_list = []
     gang_member_list = []
     
     counter = 0
+    counter2 = 0
 
     if does_files_exist_else_create_csv_file():
         missing_person_list, gang_member_list = reading_in_list()
 
-    for page_number in range(1, page_count + 1):
-        url = base_url + str(page_number)
-        response = requests.get(url)
+    for page_number in range(1, 6):
+        params = {'page': page_number}
+        response = requests.get(base_url, params=params)
+
 
         if response.status_code == 200:
             data = response.json()
@@ -32,11 +32,26 @@ def fetch_data():
                 title = item.get('title', '') # Extract title from item
                 subjects = item.get('subjects', [])  # Extract subjects from item (Missing Persons or Criminal Enterprise Investigations)        
 
-                # Extract first and last name from title - removing ' - ' and splitting on first space
-                name_part = title.split(' - ')[0]
 
-                # Splitting on first space to separate first and last name
-                first_name, last_name = name_part.split(" ", 1)
+
+                # # Extract first and last name from title - removing ' - ' and splitting on first space
+                # name_part = title.split(' - ')[0]
+
+                # # Splitting on first space to separate first and last name
+                # first_name, last_name = name_part.split(" ", 1)
+
+                try:
+                    if 'VICTIM' in title:
+                        name_part = title.split('VICTIM')[1].strip()
+                        print(title)
+                    else:
+                        name_part = title.split(' - ')[0].strip()
+
+                    # Splitting on first space to separate first and last name
+                    first_name, last_name = name_part.split(" ", 1)
+
+                except ValueError:
+                    continue                   
 
                 # if "ViCAP Missing Persons" in subjects or "Kidnappings and Missing Persons" in subjects:            
                 if any("Missing Persons" in subject for subject in subjects):
