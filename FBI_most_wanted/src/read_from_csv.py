@@ -16,8 +16,8 @@ def reading_in_list():
         reader = csv.reader(file)
         next(reader) # Skip header
         for row in reader:            
-            if len(row) >= 4:  # Ensure the row has at least 4 elements
-                missing_person = MissingPerson(row[0], row[1], row[2], row[3])
+            if len(row) >= 6:  # Ensure the row has at least 4 elements
+                missing_person = MissingPerson(row[0], row[1], row[2], row[3], row[4], row[5])
                 missing_person_list.append(missing_person)
 
     # Read data from csv file
@@ -25,8 +25,8 @@ def reading_in_list():
         reader = csv.reader(file)
         next(reader) # Skip header
         for row in reader:            
-            if len(row) >= 4:
-                gang_member = Gang_member(row[0], row[1], row[2], row[3])
+            if len(row) >= 5:
+                gang_member = Gang_member(row[0], row[1], row[2], row[3], row[4])
                 gang_member_list.append(gang_member)
 
     return missing_person_list, gang_member_list

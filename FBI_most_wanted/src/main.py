@@ -3,13 +3,14 @@ from save_to_csv import save_to_csv, update_csv_row
 
 def main():
     while True:
+        missing_person_list, gang_member_list = fetch_data()
+        
         print("\nPress 1 to show missing persons")
         print("Press 2 to show gang members")
         print("Press 3 to exit")
-        
+    
         choice = input("Enter your choice: ")
 
-        missing_person_list, gang_member_list = fetch_data()
         
         if choice == '1':            
             missing_person_list = edit_person(missing_person_list, "missing_person")

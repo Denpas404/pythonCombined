@@ -1,7 +1,7 @@
-ID,First Name,Last Name,Gang Name
-454ca0b04a3e402a83b86dfead65cbf2,DARASY,S. CHHIM,Unknown
-cd626d1aedfd4acc816a1a3a418b1472,EDWIN,ERNESTO CEDILLOS-RODRIGUEZ,Unknown
-712c3469993e4eb8ad706b65082b37ef,SALOME,FLORES APODACA,Unknown
-3a8af7eedbcd4406a7c44b9ed0068d2e,JESUS,ALEXANDRO SANCHEZ FELIX,Unknown
-d116fc824786453eaa1f2aca9b34ca8e,CRESENCIO,MORENO AGUIRRE,Unknown
-34c738a021b94830be97f767a07f5f73,SEMION,MOGILEVICH,Unknown
+ID,First Name,Last Name,Aliases,Gang Name
+454ca0b04a3e402a83b86dfead65cbf2,DARASY,S. CHHIM,"['“Mystickal”', '""Mystikal""', '“Rizzus""', '""Russel""', '""Crusty Rusty""']",Bloods
+712c3469993e4eb8ad706b65082b37ef,SALOME,FLORES APODACA,"['Fino Flores Apodaca', 'Pelon Flores Apodaca', '""Pelon""', '""Fino""']",Unknown
+cd626d1aedfd4acc816a1a3a418b1472,EDWIN,ERNESTO CEDILLOS-RODRIGUEZ,"['""Renuente de Abriles Dangers""']",Unknown
+3a8af7eedbcd4406a7c44b9ed0068d2e,JESUS,ALEXANDRO SANCHEZ FELIX,"['Alejandro Fernandez Felix', '""El Russo""', '""El Ruso""', '""Alex""', 'Juan Jose Ponce Felix', 'Alex Sanchez', '""Ruso""', '""Ginete""', '""Alejandro""', 'Jesus Alejandro Sanchez', 'Jesus Sanchez Felix']",Unknown
+d116fc824786453eaa1f2aca9b34ca8e,CRESENCIO,MORENO AGUIRRE,,Unknown
+34c738a021b94830be97f767a07f5f73,SEMION,MOGILEVICH,"['Seva Moguilevich', 'Semon Yudkovich Palagnyuk', 'Semen Yukovich Telesh', 'Simeon Mogilevitch', 'Semjon Mogilevcs', 'Shimon Makelwitsh', 'Shimon Makhelwitsch', 'Sergei Yurevich Schnaider', '""Seva""']",Unknown

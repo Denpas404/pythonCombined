@@ -18,14 +18,14 @@ def does_files_exist_else_create_csv_file():
     if not os.path.exists(missing_persons_path):
         with open(missing_persons_path, 'w', newline='') as file:
             writer = csv.writer(file)
-            writer.writerow(["ID", "First Name", "Last Name", "Last Seen"])
+            writer.writerow(["ID", "First Name", "Last Name", "Aliases", "Details", "Last Seen"])
         did_exist = False
 
         # Check and create gang_members.csv if it doesn't exist
     if not os.path.exists(gang_members_path):
         with open(gang_members_path, 'w', newline='') as file:
             writer = csv.writer(file)
-            writer.writerow(["ID", "First Name", "Last Name", "Gang Name"])
+            writer.writerow(["ID", "First Name", "Last Name", "Aliases", "Gang Name"])
         did_exist = False
 
     return did_exist
@@ -42,9 +42,9 @@ def save_to_csv(data, data_type):
 
         # Skriv data række
         if data_type == "missing_person":
-            writer.writerow([data.id, data.first_name, data.last_name, data.last_seen])
+            writer.writerow([data.id, data.first_name, data.last_name, data.aliases, data.details, data.last_seen])
         elif data_type == "gang_member":
-            writer.writerow([data.id, data.first_name, data.last_name, data.gang_name])
+            writer.writerow([data.id, data.first_name, data.last_name, data.aliases,  data.gang_name])
 
     return True
 
@@ -59,9 +59,9 @@ def update_csv_row(data, data_type, row_index):
         rows = list(reader)
 
     if data_type == "missing_person":
-        rows[row_index] = [data.id, data.first_name, data.last_name, data.last_seen]
+        rows[row_index] = [data.id, data.first_name, data.last_name, data.aliases, data.details, data.last_seen]
     elif data_type == "gang_member":
-        rows[row_index] = [data.id, data.first_name, data.last_name, data.gang_name]
+        rows[row_index] = [data.id, data.first_name, data.last_name, data.aliases, data.gang_name]
 
     with open(file_path, 'w', newline='') as file:
         writer = csv.writer(file)
