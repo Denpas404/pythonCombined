@@ -62,36 +62,3 @@ class tec:
         with open(self.file_path, 'w', newline='') as file:
             writer = csv.writer(file)
             writer.writerows(rows)
-
-    def print_fag_ud(self, *args):
-        lære_list = []
-        if len(args) == 3:
-            fornavn, efternavn, liste = args
-        else:
-            ny_lære, liste = args
-        
-        print(f"\nVælg et fag til {fornavn} {efternavn}")
-        for index, fag in enumerate(liste, start=1):
-            print(f"{index}: {fag}")
-
-            while True:
-                valgt_fag = input("Vælg et fag fra listen: (0 for at afbryde)")
-                if valgt_fag.isdigit():
-                    valgt_fag = int(valgt_fag)
-
-                    if valgt_fag == 0:
-                        print("\nGoing back to main menu.")
-                        break  # Går ud af loop og tilbage til forrige menu
-
-                    elif 1 <= valgt_fag <= len(liste):
-                        ny_lære.fag = [liste[valgt_fag-1]]
-                        print(f"{ny_lære.first_name} {ny_lære.last_name} er nu opetter med følgende fag:")
-                        print(f"\t-{ny_lære.fag}")
-                        lære_list.append(ny_lære)
-                        break
-
-                else:              
-                    print("Forkert indtastning, prøv igen:")
-                    
-        return lære_list
-
