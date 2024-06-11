@@ -8,5 +8,4 @@ class MissingPerson(Person):
         self.details = details
         self.last_seen = last_seen
 
-    def __repr__(self):
-        return f"MissingPerson({self.id}, {self.first_name}, {self.last_name}, {self.aliases}, {self.details}, {self.last_seen})"        
+    

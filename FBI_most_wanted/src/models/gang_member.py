@@ -6,5 +6,4 @@ class Gang_member(Person):
         self.aliases = aliases
         self.gang_name = gang_name
 
-    def __repr__(self):
-        return f"Gang_member({self.id}, {self.first_name}, {self.last_name}, {self.aliases}, {self.gang_name})"
+    

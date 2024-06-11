@@ -11,7 +11,7 @@ class Person(IRequiredPersonInfo):
 
     @property
     def last_name(self):
-        return self._last_name
-
-    def __repr__(self):
-        return f"Person(first_name={self.first_name}, last_name={self.last_name})"
+        return self._last_name    
+    
+    def get_fullname(self):
+        return f"{self.first_name} {self.last_name}"
