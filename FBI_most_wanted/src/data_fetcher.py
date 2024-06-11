@@ -20,6 +20,9 @@ def fetch_data():
     for page_number in range(1, 6):
         params = {'page': page_number}
         response = requests.get(base_url, params=params)
+        if response.status_code == 429:
+            print("Too many requests, try again later.")
+            break
 
         if response.status_code == 200:
             data = response.json()
