@@ -1,5 +1,5 @@
 from data_fetcher import fetch_data
-from save_to_csv import save_to_csv, update_csv_row
+from save_to_csv import update_csv_row
 from delete_data_files import delete_data_files
 import threading
 import time
@@ -8,8 +8,7 @@ import os
 
 
 def main():
-    global terminate_flag
-
+    
     while True:
         missing_person_list, gang_member_list = fetch_data() 
 
@@ -149,6 +148,3 @@ if __name__ == "__main__":
     # Join the main and schedule threads to keep the program running
     main_thread.join()
     schedule_thread.join()
-
-
-

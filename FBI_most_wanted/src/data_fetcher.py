@@ -14,8 +14,8 @@ def fetch_data():
     gang_member_list = []
     
 
-    if does_files_exist_else_create_csv_file():
-        missing_person_list, gang_member_list = reading_in_list()
+    does_files_exist_else_create_csv_file()
+        
 
     for page_number in range(1, 6):
         params = {'page': page_number}
@@ -32,8 +32,8 @@ def fetch_data():
                 uid = item.get('uid') # Extract UID from item
                 title = item.get('title', '') # Extract title from item
                 aliases = item.get('aliases', []) # Extract aliases from item
-                subjects = item.get('subjects', [])  # Extract subjects from item (Missing Persons or Criminal Enterprise Investigations)
-                details = item.get('details', '') # Extract details from item
+                category = item.get('subjects', [])  # Extract subjects from item (Missing Persons or Criminal Enterprise Investigations)
+                details = item.get('details', '') # Extract details from item'
 
                 # If details is empty, skip this item
                 details = details if details is not None else ""
@@ -58,17 +58,19 @@ def fetch_data():
                     continue                   
 
                 # if "ViCAP Missing Persons" in subjects or "Kidnappings and Missing Persons" in subjects:            
-                if any("Missing Persons" in subject for subject in subjects):
+                if any("Missing Persons" in subject for subject in category):
                     if not any(person.id == uid for person in missing_person_list):
+                        person_to_save = [category, first_name, last_name, aliases, clean_details]
                         missing_person = MissingPerson(uid, first_name, last_name, aliases, clean_details)                    
-                        save_to_csv(missing_person, "missing_person")
+                        save_to_csv(person_to_save, "missing_person")
 
-                elif "Criminal Enterprise Investigations" in subjects:
+                elif "Criminal Enterprise Investigations" in category:
                     if not any(person.id == uid for person in gang_member_list):
+                        person_to_save = [category, first_name, last_name, aliases]
                         gang_member = Gang_member(uid, first_name, last_name, aliases)                    
-                        save_to_csv(gang_member, "gang_member")
+                        save_to_csv(person_to_save, "gang_member")
         
         
-    missing_person_list, gang_member_list = reading_in_list()
+    #missing_person_list, gang_member_list = reading_in_list()
 
     return missing_person_list, gang_member_list

@@ -12,23 +12,20 @@ def determine_file_path(data_type):
 def does_files_exist_else_create_csv_file():
     missing_persons_path = "FBI_most_wanted/data/missing_persons.csv"
     gang_members_path = "FBI_most_wanted/data/gang_members.csv"
-    did_exist = True
-
+    
     # Check and create missing_persons.csv if it doesn't exist
     if not os.path.exists(missing_persons_path):
         with open(missing_persons_path, 'w', newline='') as file:
             writer = csv.writer(file)
-            writer.writerow(["ID", "First Name", "Last Name", "Aliases", "Details", "Last Seen"])
-        did_exist = False
+            writer.writerow(["Category", "Name", "Aliases", "Details"])
+
 
         # Check and create gang_members.csv if it doesn't exist
     if not os.path.exists(gang_members_path):
         with open(gang_members_path, 'w', newline='') as file:
             writer = csv.writer(file)
-            writer.writerow(["ID", "First Name", "Last Name", "Aliases", "Gang Name"])
-        did_exist = False
-
-    return did_exist
+            writer.writerow(["Category", "Name", "Aliases", "Gang Name"])
+    
 
 
 def save_to_csv(data, data_type):
@@ -42,9 +39,9 @@ def save_to_csv(data, data_type):
 
         # Skriv data række
         if data_type == "missing_person":
-            writer.writerow([data.id, data.first_name, data.last_name, data.aliases, data.details, data.last_seen])
+            writer.writerow([data[0], f"{data[1]} {data[2]}", data[3], data[4]])
         elif data_type == "gang_member":
-            writer.writerow([data.id, data.first_name, data.last_name, data.aliases,  data.gang_name])
+            writer.writerow([data[0], f"{data[1]} {data[2]}", data[3]])
 
     return True
 
