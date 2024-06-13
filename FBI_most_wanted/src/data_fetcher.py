@@ -8,7 +8,7 @@ from save_to_csv import does_files_exist_else_create_csv_file
 
 
 def main_fetch_data():
-    print("\nFetching data from FBI API...\n")
+    print("\nFetching data from FBI API...")
     
     missing_person_list = []
     gang_member_list = []
@@ -24,12 +24,11 @@ def extract_from_api():
 
     extracted_data = []    
     
-    missing_person_list = []
-    # missing_etl_list = []
+    missing_person_list = []    
     gang_member_list = []
-    # gang_etl_list = []
+    
 
-    for page_number in range(1, 2):
+    for page_number in range(1, 3):
         params = {'page': page_number}
         response = requests.get(base_url, params=params)
 
@@ -48,7 +47,7 @@ def extract_from_api():
 
 
 def transform_data(items):
-    print("\nTransforming data...\n")
+    print("\nTransforming data...")
 
     transformed_data = []
 
@@ -88,7 +87,7 @@ def transform_data(items):
                 transformed_data.append([uid, new_category, first_name, last_name, aliases, clean_details])
 
     
-    print("\nData transformed successfully.\n")
+    print("Data transformed successfully.")
     
     missing_person_list, gang_member_list = load_data_(transformed_data)    
 
@@ -110,7 +109,7 @@ def load_existing_data(file_path, key_index, cls):
     return existing_data
 
 def load_data_(extracted_data):
-    print("\nLoading data...\n")
+    print("\nLoading data...")
     does_files_exist_else_create_csv_file() # checks if files exists, if not creates them, with headers
     # missing person header:    id,first_name,last_name,last_seen
     # gang member header:       id,first_name,last_name,gang_name    
@@ -160,5 +159,5 @@ def load_data_(extracted_data):
                     gang_etl_writer.writerow([category, full_name, aliases])
                     existing_gang_etl.append((category, full_name, aliases))
 
-    print("\nData loaded successfully.\n")
+    print("Data loaded successfully.")
     return existing_missing_persons, existing_gang_members # returns missing_persons_file, gang_members_file to transform_data()

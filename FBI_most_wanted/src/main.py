@@ -11,12 +11,9 @@ def main():
     
     while True:
 
-        
-        
         missing_person_list, gang_member_list = main_fetch_data()
         
-        
-
+        print("\n\n\n\n\nStarting main program...\n\n\n\n")
 
         if not missing_person_list and not gang_member_list:
             print("\nNo data was found in the CSV files, and access to the API is currently unavailable.")
