@@ -56,7 +56,7 @@ def main():
 
             elif choice == '4':
                 print("Exiting program.")
-                quit()
+                os._exit(0)
             else:
                 print("Invalid choice. Please try again.")
 
