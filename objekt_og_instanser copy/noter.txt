@@ -1,9 +1,0 @@
-# poly method test(string) - test(int) - test(float) 
-# Is when a method parameter can be of different types.
-
-# abstarct method is when a method is declared, but contains no implementation.
-# The implementation is done in the subclass.
-
-# Hardcode list af fag
-
-# lære har liste af fag

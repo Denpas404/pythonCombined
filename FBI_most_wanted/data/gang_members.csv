@@ -1,7 +1,3 @@
-Category,Name,Aliases,Gang Name
-['Criminal Enterprise Investigations'],DARASY S. CHHIM,"['“Mystickal”', '""Mystikal""', '“Rizzus""', '""Russel""', '""Crusty Rusty""']"
-['Criminal Enterprise Investigations'],EDWIN ERNESTO CEDILLOS-RODRIGUEZ,"['""Renuente de Abriles Dangers""']"
-['Criminal Enterprise Investigations'],SALOME FLORES APODACA,"['Fino Flores Apodaca', 'Pelon Flores Apodaca', '""Pelon""', '""Fino""']"
-['Criminal Enterprise Investigations'],JESUS ALEXANDRO SANCHEZ FELIX,"['Alejandro Fernandez Felix', '""El Russo""', '""El Ruso""', '""Alex""', 'Juan Jose Ponce Felix', 'Alex Sanchez', '""Ruso""', '""Ginete""', '""Alejandro""', 'Jesus Alejandro Sanchez', 'Jesus Sanchez Felix']"
-['Criminal Enterprise Investigations'],CRESENCIO MORENO AGUIRRE,
-['Criminal Enterprise Investigations'],SEMION MOGILEVICH,"['Seva Moguilevich', 'Semon Yudkovich Palagnyuk', 'Semen Yukovich Telesh', 'Simeon Mogilevitch', 'Semjon Mogilevcs', 'Shimon Makelwitsh', 'Shimon Makhelwitsch', 'Sergei Yurevich Schnaider', '""Seva""']"
+id,first_name,last_name,gang_name
+afda85d4f2024c48b393b65c8eb0d564,COLLIN,POSEY,Bloods
+8ccf4b21838243ebaf6a87d0afe1e3cc,CESAR,HUMBERTO LOPEZ-LARIOS,Unknown

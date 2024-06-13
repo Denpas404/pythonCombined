@@ -1,4 +1,4 @@
-from data_fetcher import fetch_data
+from data_fetcher import main_fetch_data
 from save_to_csv import update_csv_row
 from delete_data_files import delete_data_files
 import threading
@@ -10,7 +10,12 @@ import os
 def main():
     
     while True:
-        missing_person_list, gang_member_list = fetch_data() 
+
+        
+        
+        missing_person_list, gang_member_list = main_fetch_data()
+        
+        
 
 
         if not missing_person_list and not gang_member_list:
@@ -51,7 +56,7 @@ def main():
 
             elif choice == '4':
                 print("Exiting program.")
-                exit()
+                quit()
             else:
                 print("Invalid choice. Please try again.")
 
